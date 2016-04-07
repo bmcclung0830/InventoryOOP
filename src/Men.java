@@ -3,9 +3,10 @@
  */
 public class Men extends InventoryItem{
 
-    public Men(String name) {
+
+    public Men(String name, int quantity) {
         this.name= name;
-        this.itemQuantity = quantity;
+        this.quantity = quantity;
         this.category = "Mens";
     }
 }

@@ -1,3 +1,5 @@
+import java.util.InputMismatchException;
+
 public class Inventory {
 
     public static void main(String[] args) {
@@ -6,22 +8,21 @@ public class Inventory {
         while (true) {
             Login.login();
             Menu.menu();
-            while (! Menu.getChoice().equalsIgnoreCase("4")) {
+            while (! Menu.getChoice().equalsIgnoreCase("5")) {
                 Menu.menu();
             }
-
         }
     }
 
 
-    static InventoryItem createItem(String name, int quantity, String category) {
+    static InventoryItem createItem(String category, String name,int quantity) {
 
         switch (category) {
-            case "Woman": Menu.inventoryList.put(name, quantity);
-            case "Men": Menu.inventoryList.put(name, quantity);
-            case "Outerwear": Menu.inventoryList.put(name, quantity);
-            case "Headwear": Menu.inventoryList.put(name, quantity);
-            case "Footwear": Menu.inventoryList.put(name, quantity);
+            case "Womens": return new Women(name, quantity);
+            case "Mens": return new Men(name, quantity);
+            case "Outerwear": return new Outerwear(name, quantity);
+            case "Footwear": return new Footwear (name, quantity);
+            case "Headwear": return new Headwear(name, quantity);
             default: return new InventoryItem();
         }
     }
